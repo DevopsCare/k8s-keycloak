@@ -1,3 +1,9 @@
+variable "kubeconfig_filename" {
+  type    = "string"
+  default = ""
+}
+
+
 variable "project_prefix" {
   type = "string"
 }

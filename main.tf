@@ -4,3 +4,9 @@ provider "keycloak" {
   password  = "${module.keycloak.keycloak-password}"
   url       = "https://${module.keycloak.keycloak-subdomain}.${var.project_fqdn}"
 }
+
+provider "helm" {
+  kubernetes {
+    config_path = "${var.kubeconfig_filename}"
+  }
+}

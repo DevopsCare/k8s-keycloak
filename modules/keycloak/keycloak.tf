@@ -11,12 +11,14 @@ resource "helm_release" "keycloak" {
 }
 
 resource "keycloak_realm" "realm" {
+  depends_on           = ["helm_release.keycloak"]
   realm                = "${var.realm_name}"
   enabled              = true
   access_code_lifespan = "1h"
 }
 
 resource "keycloak_ldap_user_federation" "ldap_user_federation" {
+  depends_on              = ["helm_release.keycloak"]
   name                    = "ldap"
   realm_id                = "${keycloak_realm.realm.id}"
   enabled                 = true
@@ -41,6 +43,7 @@ resource "keycloak_ldap_user_federation" "ldap_user_federation" {
 }
 
 resource "keycloak_openid_client" "openid_client" {
+  depends_on            = ["helm_release.keycloak"]
   realm_id              = "${keycloak_realm.realm.realm}"
   client_id             = "oauth"
   name                  = "oauth"
