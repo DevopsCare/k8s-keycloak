@@ -15,7 +15,7 @@
 */
 
 output "client_secret" {
-  value ="${module.keycloak.client-secret}"
+  value = module.keycloak.client-secret
 }
 
 output "keycloak_domain" {
@@ -23,5 +23,5 @@ output "keycloak_domain" {
 }
 
 output "oauth_proxy_address" {
-  value = "${module.keycloak.oauth-proxy-address}"
+  value = module.keycloak.oauth-proxy-address
 }

@@ -14,12 +14,6 @@
 * limitations under the License.
 */
 
-variable "kubeconfig_filename" {
-  type    = "string"
-  default = ""
-}
-
-
 variable "project_prefix" {
   type = "string"
 }
@@ -43,3 +37,7 @@ variable "ldap_password" {
 variable "users_dn" {
   type = "string"
 }
+
+variable "kubernetes_host" {}
+variable "kubernetes_ca_certificate" {}
+variable "kubernetes_token" {}

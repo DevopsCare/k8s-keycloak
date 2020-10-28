@@ -19,7 +19,7 @@ output "oauth-proxy-address" {
 }
 
 output "client-secret" {
-  value = "${keycloak_openid_client.openid_client.client_secret}"
+  value = keycloak_openid_client.openid_client.client_secret
 }
 
 output "keycloak-subdomain" {
