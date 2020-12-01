@@ -20,10 +20,6 @@ resource "helm_release" "keycloak" {
   namespace = var.keycloak_namespace
   values    = [data.template_file.keycloak-values.rendered]
   version   = var.keycloak_chart_version
-
-  lifecycle {
-    ignore_changes = ["keyring"]
-  }
 }
 
 resource "keycloak_realm" "realm" {

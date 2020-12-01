@@ -20,8 +20,4 @@ resource "helm_release" "oauth-proxy" {
   namespace = var.oauth_proxy_namespace
   values    = [data.template_file.oauth-proxy-values.rendered]
   version   = var.oauth_proxy_chart_version
-
-  lifecycle {
-    ignore_changes = ["keyring"]
-  }
 }
